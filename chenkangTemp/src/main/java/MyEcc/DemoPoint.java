@@ -60,6 +60,7 @@ public class DemoPoint implements Point {
     public Point encode(BigInteger en) {
         DemoPoint dp = new DemoPoint(this.x, this.y);
         dp.x = dp.x.add(en);
+        dp.y = dp.y.add(en);
         return dp;
     }
 
