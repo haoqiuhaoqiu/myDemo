@@ -8,6 +8,7 @@ import java.util.Random;
 
 public class 公钥加密 {
     public static void main(String[] arg) {
+//      这就是上面那个类生成的公钥
 //      PublicKey{point1=DemoPoint{x=0, y=1}, point2=DemoPoint{x=61745727438, y=19524854285}}
         PublicKey publicKey = new PublicKey(new DemoPoint("0", "1"), new DemoPoint("61745727438", "19524854285"));//这是别人发给我们的公钥
 
