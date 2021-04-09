@@ -3,18 +3,18 @@ package ecc;
 import java.math.BigInteger;
 
 public class EccUtil {
-    private static BigInteger x, y;
+    private static BigInteger p1, p2;
 
     private static BigInteger exgcd(BigInteger a, BigInteger b) {
         if (b.equals(new BigInteger("0"))) {
-            x = new BigInteger("1");
-            y = new BigInteger("0");
+            p1 = new BigInteger("1");
+            p2 = new BigInteger("0");
             return a;
         }
         BigInteger d = exgcd(b, a.mod(b));
-        BigInteger t = x;
-        x = y;
-        y = t.subtract(a.divide(b).multiply(y));
+        BigInteger t = p1;
+        p1 = p2;
+        p2 = t.subtract(a.divide(b).multiply(p2));
         return d;
     }
 
@@ -27,7 +27,7 @@ public class EccUtil {
      */
     public static BigInteger linearMod(BigInteger a, BigInteger b, BigInteger m) {
         BigInteger d = exgcd(a, m);
-        BigInteger ret = x.multiply(b.divide(d)).mod(m);
+        BigInteger ret = p1.multiply(b.divide(d)).mod(m);
         if (ret.compareTo(new BigInteger("0")) > 0) {
             return ret;
         }
