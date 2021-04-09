@@ -21,7 +21,7 @@ public class 公钥加密 {
         //然后使用你偏移量来作为我们要发送的数字,这里假如我们要发送的数字是2020
         point2 = point2.encode(new BigInteger("2020"));
 
-        System.out.println(point1 + "  " + point2);//加密好以后把point1和point2 发送过去
+        System.out.println("公钥加密好的后的数据是:"+point1 + "  " + point2);//加密好以后把point1和point2 发送过去
         //DemoPoint{x=19075198770, y=12493183992}  DemoPoint{x=89852588610, y=29392771030}
     }
 }
