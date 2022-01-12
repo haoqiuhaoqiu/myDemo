@@ -5,7 +5,7 @@ import asymmetric.Parameter;
 import java.math.BigInteger;
 
 /***
- * 协议
+ * 通过一个椭圆曲线来加密,靠谱
  * y² ≡ x³ + x + 1 (mod 98764321261)
  */
 public class Ecc extends Parameter {
