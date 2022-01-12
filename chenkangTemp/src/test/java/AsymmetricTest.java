@@ -8,8 +8,11 @@ import java.util.Random;
 
 public class AsymmetricTest {
     //加密协议
-    private static Parameter EncryptionProtocol = new Simple(new BigInteger("123"));
-//    private static Parameter EncryptionProtocol = new Ecc(new BigInteger("0"), new BigInteger("1"));
+//    private static Parameter EncryptionProtocol = new Simple(new BigInteger("66666"));
+//    private static Parameter EncryptionProtocol = new Simple(new BigInteger("123"));
+//    private static Parameter EncryptionProtocol = new Ecc(new BigInteger("74073240946"), new BigInteger("61727700787"));
+//    private static Parameter EncryptionProtocol = new Ecc(new BigInteger("11712622946"), new BigInteger("71248048651"));
+    private static Parameter EncryptionProtocol = new Ecc(new BigInteger("0"), new BigInteger("1"));
 
     //私钥
     private static BigInteger privateKey = new BigInteger("1000000000000000000000000000");
