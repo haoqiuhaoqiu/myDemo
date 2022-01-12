@@ -6,7 +6,8 @@ import java.math.BigInteger;
 
 /**
  * 就是普通的加法
- * 不靠谱通过公钥可以直接推出私钥
+ * 不靠谱的反例
+ * 通过公钥可以直接推出私钥虽然能加密解密但是直接就能破解
  */
 public class Simple extends Parameter {
     private BigInteger x;
