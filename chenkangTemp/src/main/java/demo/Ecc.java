@@ -1,4 +1,4 @@
-package ecc;
+package demo;
 
 import asymmetric.Parameter;
 
@@ -8,12 +8,12 @@ import java.math.BigInteger;
  * 协议
  * y² ≡ x³ + x + 1 (mod 98764321261)
  */
-public class EccPoint extends Parameter {
+public class Ecc extends Parameter {
     private BigInteger x;
     private BigInteger y;
     private BigInteger p = new BigInteger("98764321261");
 
-    public EccPoint(BigInteger x, BigInteger y) {
+    public Ecc(BigInteger x, BigInteger y) {
         this.x = x;
         this.y = y;
         BigInteger y2 = y.multiply(y).mod(this.p);
@@ -72,7 +72,7 @@ public class EccPoint extends Parameter {
     }
 
     public Parameter merge(Parameter pointq) {
-        EccPoint Q = (EccPoint) pointq;
+        Ecc Q = (Ecc) pointq;
         BigInteger λ;
         BigInteger a, b;
         if (!this.equals(pointq)) {
@@ -88,19 +88,19 @@ public class EccPoint extends Parameter {
 
         BigInteger y = λ.multiply(this.x.subtract(x)).subtract(this.y).mod(p);
 
-        return new EccPoint(x, y);
+        return new Ecc(x, y);
     }
 
 
     public Parameter deviation(BigInteger bi) {
-        EccPoint dp = new EccPoint(this.x, this.y);
+        Ecc dp = new Ecc(this.x, this.y);
         dp.x = dp.x.add(bi);
         dp.y = dp.y.add(bi);
         return dp;
     }
 
     public BigInteger compare(Parameter p) {
-        EccPoint dp = (EccPoint) p;
+        Ecc dp = (Ecc) p;
         return dp.x.subtract(this.x);
     }
 }

@@ -1,13 +1,16 @@
 import asymmetric.Parameter;
-import ecc.EccPoint;
+import demo.Ecc;
+import demo.Simple;
 import org.junit.Test;
 
 import java.math.BigInteger;
 import java.util.Random;
 
-public class EccPointTest {
+public class AsymmetricTest {
     //加密协议
-    private static Parameter EncryptionProtocol = new EccPoint(new BigInteger("0"), new BigInteger("1"));
+    private static Parameter EncryptionProtocol = new Simple(new BigInteger("123"));
+//    private static Parameter EncryptionProtocol = new Ecc(new BigInteger("0"), new BigInteger("1"));
+
     //私钥
     private static BigInteger privateKey = new BigInteger("1000000000000000000000000000");
 
