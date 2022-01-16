@@ -2,6 +2,9 @@ package asymmetric;
 
 import java.math.BigInteger;
 
+/**
+ * @author  陈康
+ */
 public abstract class Parameter {
     /**
      * 2个对象合并成一个新对象

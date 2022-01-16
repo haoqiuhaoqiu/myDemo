@@ -5,6 +5,8 @@ import asymmetric.Parameter;
 import java.math.BigInteger;
 
 /***
+ *  * @author  陈康
+ *
  * 通过一个椭圆曲线来加密,靠谱
  * y² ≡ x³ + x + 1 (mod 98764321261)
  */
