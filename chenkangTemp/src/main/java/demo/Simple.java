@@ -5,6 +5,8 @@ import asymmetric.Parameter;
 import java.math.BigInteger;
 
 /**
+ * 这是一个反例 说明一下这个虽然实现了parameter接口但是他的merge是有逆运算的,所以能直接推出私钥,
+ *
  * 就是普通的加法
  * 不靠谱的反例
  * 通过公钥可以直接推出私钥虽然能加密解密但是直接就能破解
