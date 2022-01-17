@@ -25,13 +25,13 @@ public abstract class Parameter {
      * 标量乘法
      * @return
      */
-    public Parameter multiplication(BigInteger num) {
+    public Parameter 乘(BigInteger num) {
         if (num.compareTo(new BigInteger("1")) < 1) {//如果等于1
             return this;
         }
         if (new BigInteger("0").compareTo(num.mod(new BigInteger("2"))) == 0) {//如果取模等于0就直接升一级
-            return this.merge(this).multiplication(num.divide(new BigInteger("2")));
+            return this.merge(this).乘(num.divide(new BigInteger("2")));
         }
-        return this.merge(this).multiplication(num.divide(new BigInteger("2"))).merge(this);
+        return this.merge(this).乘(num.divide(new BigInteger("2"))).merge(this);
     }
 }
