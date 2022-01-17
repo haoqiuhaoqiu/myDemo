@@ -8,14 +8,27 @@ import java.math.BigInteger;
  *  * @author  陈康
  *
  * 通过一个椭圆曲线来加密,靠谱
- * y² ≡ x³ + x + 1 (mod 98764321261)
+ * y² ≡ x³ + x + 1 (mod p)
+ * p = 111111111111111111111111111111111111111111111111111111111111111257
  */
 public class Ecc extends Parameter {
     private BigInteger x;
     private BigInteger y;
-    private final BigInteger p = new BigInteger("98764321261");
+    private final BigInteger p = new BigInteger("111111111111111111111111111111111111111111111111111111111111111257");
 
     public Ecc(BigInteger x, BigInteger y) {
+        this.x = x;
+        this.y = y;
+        BigInteger y2 = y.multiply(y).mod(this.p);
+        BigInteger x3 = x.multiply(x).multiply(x).add(x).add(new BigInteger("1")).mod(this.p);
+        if (!y2.equals(x3)) {
+            throw new RuntimeException("不符合条件");
+        }
+    }
+
+    public Ecc(String strx, String stry) {
+        BigInteger x = new BigInteger(strx);
+        BigInteger y = new BigInteger(stry);
         this.x = x;
         this.y = y;
         BigInteger y2 = y.multiply(y).mod(this.p);
@@ -66,11 +79,14 @@ public class Ecc extends Parameter {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        Ecc p = (Ecc) obj;
+        return this.x.equals(p.x) && this.y.equals(p.y);
+    }
+
+    @Override
     public String toString() {
-        return "{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
+        return "(" + x + "," + y + ')';
     }
 
     public Parameter merge(Parameter pointq) {
