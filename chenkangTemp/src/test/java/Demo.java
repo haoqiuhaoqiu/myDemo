@@ -11,11 +11,20 @@ public class Demo {
      */
     @Test
     public void groupMultiplication() {
-        Parameter 坐标点 = new Ecc(new BigInteger("74073240946"), new BigInteger("61727700787"));
+        Parameter 坐标点 = new Ecc(new BigInteger("0"), new BigInteger("1"));
         BigInteger 数字 = new BigInteger("200000000000");
+        System.out.println(坐标点.乘(数字) + " = " + 坐标点 + " * " + 数字);
+    }
 
-        //根据初始点 和一个  数字 生成一个目标点
-        Parameter 坐标点2 = 坐标点.乘(数字);
-        System.out.println("生成的点:" + 坐标点2);//EccPoint{x=49640409832, y=84950561392}
+    /***
+     * 这个方法必须是线性的
+     */
+    @Test
+    public void linear() {
+        Parameter 坐标点 = new Ecc(new BigInteger("0"), new BigInteger("1"));
+
+        System.out.println(坐标点.乘("999999999").乘("1000000000"));
+        System.out.println(坐标点.乘("1000000000").乘("999999999"));
+        System.out.println(坐标点.乘("999999999000000000"));
     }
 }
