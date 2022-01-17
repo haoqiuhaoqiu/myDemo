@@ -13,7 +13,7 @@ import java.math.BigInteger;
 public class Ecc extends Parameter {
     private BigInteger x;
     private BigInteger y;
-    private BigInteger p = new BigInteger("98764321261");
+    private final BigInteger p = new BigInteger("98764321261");
 
     public Ecc(BigInteger x, BigInteger y) {
         this.x = x;

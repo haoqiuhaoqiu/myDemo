@@ -19,7 +19,7 @@ public class AsymmetricTest {
 
     //公钥直接就是用协议的原点乘以私钥就行了
     public Parameter createPublicKey() {
-        return EncryptionProtocol.multiplication(privateKey);
+        return EncryptionProtocol.乘(privateKey);
     }
 
     @Test
@@ -31,13 +31,13 @@ public class AsymmetricTest {
         // 然后再用协议原点乘以这个数字作为报文2
         // 报文1和报文2合起来就是加密以后的报文
         BigInteger random = new BigInteger(new Random().nextLong() + "");
-        Parameter postPar1 = createPublicKey().multiplication(random).deviation(bigInteger);
-        Parameter postPar2 = EncryptionProtocol.multiplication(random);
+        Parameter postPar1 = createPublicKey().乘(random).deviation(bigInteger);
+        Parameter postPar2 = EncryptionProtocol.乘(random);
         System.out.println("公钥加密以后的报文:" + postPar1 + "  " + postPar2);
 
 
         //私钥解密 直接用第二个参数乘以私钥和第一个参数对比差异就是用户发送的报文
-        BigInteger data = postPar2.multiplication(privateKey).compare(postPar1);
+        BigInteger data = postPar2.乘(privateKey).compare(postPar1);
         System.out.println("私钥解密以后的报文是:" + data);
     }
 }
