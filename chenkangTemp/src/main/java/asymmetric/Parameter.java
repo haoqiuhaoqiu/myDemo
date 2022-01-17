@@ -3,7 +3,7 @@ package asymmetric;
 import java.math.BigInteger;
 
 /**
- * @author  陈康
+ * @author 陈康
  */
 public abstract class Parameter {
     /**
@@ -33,5 +33,13 @@ public abstract class Parameter {
             return this.merge(this).乘(num.divide(new BigInteger("2")));
         }
         return this.merge(this).乘(num.divide(new BigInteger("2"))).merge(this);
+    }
+
+    /***
+     * 标量乘法
+     * @return
+     */
+    public Parameter 乘(String num) {
+        return 乘(new BigInteger(num));
     }
 }
