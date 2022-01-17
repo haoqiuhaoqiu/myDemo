@@ -67,7 +67,7 @@ public class Ecc extends Parameter {
 
     @Override
     public String toString() {
-        return "y² ≡ x³ + x + 1 (mod 98764321261)  EccPoint{" +
+        return "{" +
                 "x=" + x +
                 ", y=" + y +
                 '}';
