@@ -89,7 +89,7 @@ public class Ecc extends Parameter {
         return "(" + x + "," + y + ')';
     }
 
-    public Parameter merge(Parameter pointq) {
+    public Parameter 加(Parameter pointq) {
         Ecc Q = (Ecc) pointq;
         BigInteger λ;
         BigInteger a, b;

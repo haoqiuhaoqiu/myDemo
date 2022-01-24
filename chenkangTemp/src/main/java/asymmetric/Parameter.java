@@ -9,7 +9,7 @@ public abstract class Parameter {
     /**
      * 2个对象合并成一个新对象
      */
-    public abstract Parameter merge(Parameter p);
+    public abstract Parameter 加(Parameter p);
 
     /***
      * 对原来对象进行一个偏移让他有差别
@@ -30,9 +30,9 @@ public abstract class Parameter {
             return this;
         }
         if (new BigInteger("0").compareTo(num.mod(new BigInteger("2"))) == 0) {//如果取模等于0就直接升一级
-            return this.merge(this).乘(num.divide(new BigInteger("2")));
+            return this.加(this).乘(num.divide(new BigInteger("2")));
         }
-        return this.merge(this).乘(num.divide(new BigInteger("2"))).merge(this);
+        return this.加(this).乘(num.divide(new BigInteger("2"))).加(this);
     }
 
     /***

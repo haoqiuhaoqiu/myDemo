@@ -7,7 +7,7 @@ import java.math.BigInteger;
 /**
  *  * @author  陈康
  *
- * 这是一个反例 说明一下这个虽然实现了parameter接口但是他的merge是有逆运算的,所以能直接推出私钥,
+ * 这是一个反例 说明一下这个虽然实现了parameter接口但是他的加是有逆运算的,所以能直接推出私钥,
  *
  * 就是普通的加法
  * 不靠谱的反例
@@ -27,7 +27,7 @@ public class Simple extends Parameter {
                 '}';
     }
 
-    public Parameter merge(Parameter p) {
+    public Parameter 加(Parameter p) {
         Simple temp = (Simple) p;
         return new Simple(this.x.add(temp.x));
     }
