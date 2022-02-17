@@ -12,14 +12,14 @@ public abstract class Parameter {
     public abstract Parameter 加(Parameter p);
 
     /***
-     * 对原来对象进行一个偏移让他有差别
+     * 加密
      */
-    public abstract Parameter deviation(BigInteger bi);
+    public abstract Parameter 加密(BigInteger bi);
 
     /***
-     * 比较对象返回差别,和deviation是互逆的
+     * 解密
      */
-    public abstract BigInteger compare(Parameter p);
+    public abstract BigInteger 解密(Parameter p);
 
     /***
      * 标量乘法

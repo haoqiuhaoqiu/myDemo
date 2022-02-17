@@ -110,14 +110,14 @@ public class Ecc extends Parameter {
     }
 
 
-    public Parameter deviation(BigInteger bi) {
+    public Parameter 加密(BigInteger bi) {
         Ecc dp = new Ecc(this.x, this.y);
         dp.x = dp.x.add(bi);
         dp.y = dp.y.add(bi);
         return dp;
     }
 
-    public BigInteger compare(Parameter p) {
+    public BigInteger 解密(Parameter p) {
         Ecc dp = (Ecc) p;
         return dp.x.subtract(this.x);
     }
